@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
       .pagination a {
         color: coral;
@@ -16,18 +16,19 @@
       }
     </style>
 
-    <script src="/assets/bootstrap/bootstrap.min.js"></script>
-    <script src="/assets/bootstrap/bootstrap-icons.json"></script>
-    <script src="/assets/js/all.min.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/bootstrap-icons.json"></script>
+    <script src="assets/js/all.min.js"></script>
     <title>shop</title>
   </head>
   <body>
     <!-- navbar -->
 
+      <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-      <div class="container">
-        <img class="logo" src="/assets/images/my logo.png" alt="" />
-        <a class="navbar-brand" href="#">eLife</a>
+      <div class="container-fluid">
+        <img class="logo" src="assets/images/my logo.png" alt="" />
+        <a class="navbar-brand" href="#">Let's Buy</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -61,21 +62,22 @@
             </li>
             <li class="nav-item">
               <a href="cart.html"><i class="fas fa-shopping-bag icon"></i></a>
-              <a href="account.html"><i class="fas fa-user icon"></i></a>
-            </li>
+              <a href="account.html"><i class="fas fa-user icon"></i>
+            </li></a>
           </ul>
         </div>
       </div>
     </nav>
 
+
     <!-- cart -->
-    <section class="cart container my-5 py-5">
+    <section class="cart container-fluid my-5 py-5">
       <div class="container mt-5">
-        <h2 class="font-weight-bolde">Your Cart</h2>
-        <hr />
+        <h2 class="font-weight-bold text-center">Your Cart</h2>
+        <hr class="mx-auto"/>
       </div>
 
-      <table class="mt-5 pt-5">
+      <table class="mt-5 pt-5 container-fluid">
         <tr>
           <th>Product</th>
           <th>Quantity</th>
@@ -84,7 +86,7 @@
         <tr>
           <td>
             <div class="product-info">
-              <img src="/assets/images/1.jpg" alt="" />
+              <img src="assets/images/1.jpg" alt="" />
               <div>
                 <p>Watch</p>
                 <small><span>₵</span>255</small>
@@ -105,7 +107,7 @@
         <tr>
           <td>
             <div class="product-info">
-              <img src="/assets/images/1.jpg" alt="" />
+              <img src="assets/images/1.jpg" alt="" />
               <div>
                 <p>Watch</p>
                 <small><span>₵</span>255</small>
@@ -126,7 +128,7 @@
         <tr>
           <td>
             <div class="product-info">
-              <img src="/assets/images/1.jpg" alt="" />
+              <img src="assets/images/1.jpg" alt="" />
               <div>
                 <p>Watch</p>
                 <small><span>₵</span>255</small>
@@ -219,7 +221,7 @@
       <div class="copyright mt-5">
         <div class="row container mx-auto">
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <img src="/assets/images/visa.png" alt="" />
+            <img src="assets/images/visa.png" alt="" />
           </div>
           <div class="col-lg-3 col-md-6 col-sm-12 text-nowrap mb-2">
             <p>Natty @ 2025 All Reserved</p>
@@ -233,5 +235,5 @@
       </div>
     </footer>
   </body>
-  <script src="/assets/js/script.js"></script>
+  <script src="assets/js/script.js"></script>
 </html>
