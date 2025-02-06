@@ -1,3 +1,30 @@
+<?php   
+include('server/connection.php'); // Ensure correct path
+if(isset($_GET['product_id'])){
+  $product_id = $_GET['product_id'];
+  print_r($product_id);
+  
+//   $stmt = $conn->prepare("SELECT * FROM products WHERE product_id = ?");
+//   $stmt->bind_param('i', $product_id);
+
+// if ($stmt) {
+//     $stmt->execute();
+//     $product = $stmt->get_result();
+// } else {
+//     die("Error preparing SQL statement: " . $conn->error);
+// }
+
+}else{
+  // header('Location: index.php');
+}
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,46 +88,43 @@
 
     <section class="container single-product my-5 pt-5">
       <div class="row mt-5">
+
+      <?php  while($row = $product->fetch_assoc()){?>
         <div class="col-lg-5 col-md-6 col-sm-12">
           <img
-            src="assets/images/watch.jpg"
+            src="assets/images/<?php echo $row['product_image']?>"
             class="img-fluid w-100 pb-1"
             id="mainImg"
           />
           <div class="small-img-group">
             <div class="small-img-col">
-              <img src="assets/images/1.jpg" width="100%" class="small-img" />
+              <img src="assets/images/<?php echo $row['product_image2']?>1.jpg" width="100%" class="small-img" />
             </div>
             <div class="small-img-col">
-              <img src="assets/images/3.jpg" width="100%" class="small-img" />
+              <img src="assets/images/<?php echo $row['product_image3']?>" width="100%" class="small-img" />
             </div>
             <div class="small-img-col">
-              <img src="assets/images/4.jpg" width="100%" class="small-img" />
-            </div>
-            <div class="small-img-col">
-              <img src="assets/images/5.jpg" width="100%" class="small-img" />
+              <img src="assets/images/<?php echo $row['product_image4']?>" width="100%" class="small-img" />
             </div>
           </div>
         </div>
+
+
         <div class="col-lg-6 col=md-12 col-sm-12">
-          <h6>Watches</h6>
+          <h6><?php echo $row['product_category']?></h6>
           <h3 class="py-4">
             HW20 Smart Bluetooth Watch Talk Blood Oxygen - Black
           </h3>
-          <h2>GH₵ 248.00</h2>
+          <h2>GH₵<?php echo $row['product_price']?></h2>
           <input type="number" value="1" />
           <button class="buy-btn">Add To Cart</button>
-          <h4 class="mt-5 mb-5">Product Details</h4>
+          <h4 class="mt-5 mb-5">Produc Details</h4>
           <span>
-            Screen: 1.28-inch IPS HD perfect for round screens <br />
-            Touch screen: Full touch screen <br />
-            Battery :200Mah <br />
-            Charging mode: Magnetic charging <br />
-            Waterproof :IP67 Bluetooth :BT4. 0 <br />
-            APP: HiWatch Plus <br />
-            System version :IOS 8.0 or later, Android 4.4 or later</span
+          <?php echo $row['product_description']?>
+          </span
           >
         </div>
+        <?php }?>
       </div>
     </section>
 

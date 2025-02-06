@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +36,7 @@
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.php"
                 >Home</a
               >
             </li>
@@ -126,67 +127,34 @@
     </section>
 
     <!-- Featured -->
-    <section id="featured" class="my-5 pb-5">
-      <div class="container text-center mt-5 py-5">
+   <section id="featured" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5">
         <h3>Our Featured</h3>
         <center><hr /></center>
-        <p>Here You can check out our featured products</p>
-      </div>
-      <div class="row mx-auto container-fluid">
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/14.jpg" alt="" />
-          <div class="star">
+        <p>Here you can check out our featured products</p>
+    </div>
+    <div class="row mx-auto container-fluid">
+      <?php include('server/get_featured_products.php'); ?>
+            <?php while ($row = $featured_products->fetch_assoc()) { ?>
+    <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+        <img class="img-fluid mb-3" src="assets/images/<?= $row['product_image'] ?>" />
+        <div class="star">
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
         </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/6.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/11.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/4.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-      </div>
-    </section>
+        <h5 class="p-name"><?= $row['product_name'] ?></h5>
+        <h4 class="p-price">GHC <?= number_format($row['product_price'], 2) ?></h4>
+        <a href="single_product.php?=<?php echo $row['product_id']?>"><button class="buy-btn">BUY NOW</button></a>
+    </div>
+<?php } ?>
+
+    
+    </div>
+</section>
+
 
     <!-- banner -->
 
@@ -210,8 +178,11 @@
         <p>Here You can check out our Amazing Watches</p>
       </div>
       <div class="row mx-auto container-fluid">
+
+      <?php include('server/get_watches.php');?>
+       <?php while($row = $watches->fetch_assoc()){?>
         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/1.jpg" alt="" />
+          <img class="img-fluid mb-3" src="assets/images/<?= $row['product_image']?>"/>
           <div class="star">
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
@@ -219,49 +190,14 @@
             <i class="fas fa-star star"></i>
             <i class="fas fa-star star"></i>
           </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
+          <h5 class="p-name"><?= $row['product_name']?></h5>
+          <h4 class="p-price">GHC<?= $row['product_price']?></h4>
           <button class="buy-btn">BUY NOW</button>
         </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/3.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/4.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/images/watch.jpg" alt="" />
-          <div class="star">
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-            <i class="fas fa-star star"></i>
-          </div>
-          <h5 class="p-name">HP Laptop</h5>
-          <h4 class="p-price">GHC1990.0</h4>
-          <button class="buy-btn">BUY NOW</button>
-        </div>
+        <?php }?>
+       
+        
+      
       </div>
     </section>
 
