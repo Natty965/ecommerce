@@ -1,26 +1,4 @@
-<?php   
-include('server/connection.php'); // Ensure correct path
-if(isset($_GET['product_id'])){
-  $product_id = $_GET['product_id'];
-  print_r($product_id);
-  
-//   $stmt = $conn->prepare("SELECT * FROM products WHERE product_id = ?");
-//   $stmt->bind_param('i', $product_id);
 
-// if ($stmt) {
-//     $stmt->execute();
-//     $product = $stmt->get_result();
-// } else {
-//     die("Error preparing SQL statement: " . $conn->error);
-// }
-
-}else{
-  // header('Location: index.php');
-}
-
-
-
-?>
 
 
 
@@ -62,7 +40,7 @@ if(isset($_GET['product_id'])){
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.php"
                 >Home</a
               >
             </li>
@@ -88,7 +66,7 @@ if(isset($_GET['product_id'])){
 
     <section class="container single-product my-5 pt-5">
       <div class="row mt-5">
-
+<?php include('server/get_single_product.php');?>
       <?php  while($row = $product->fetch_assoc()){?>
         <div class="col-lg-5 col-md-6 col-sm-12">
           <img
@@ -98,7 +76,7 @@ if(isset($_GET['product_id'])){
           />
           <div class="small-img-group">
             <div class="small-img-col">
-              <img src="assets/images/<?php echo $row['product_image2']?>1.jpg" width="100%" class="small-img" />
+              <img src="assets/images/<?php echo $row['product_image2']?>" width="100%" class="small-img" />
             </div>
             <div class="small-img-col">
               <img src="assets/images/<?php echo $row['product_image3']?>" width="100%" class="small-img" />
@@ -113,7 +91,7 @@ if(isset($_GET['product_id'])){
         <div class="col-lg-6 col=md-12 col-sm-12">
           <h6><?php echo $row['product_category']?></h6>
           <h3 class="py-4">
-            HW20 Smart Bluetooth Watch Talk Blood Oxygen - Black
+            <?php echo $row['product_name']?>
           </h3>
           <h2>GH₵<?php echo $row['product_price']?></h2>
           <input type="number" value="1" />

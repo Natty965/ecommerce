@@ -146,8 +146,9 @@
             <i class="fas fa-star star"></i>
         </div>
         <h5 class="p-name"><?= $row['product_name'] ?></h5>
-        <h4 class="p-price">GHC <?= number_format($row['product_price'], 2) ?></h4>
-        <a href="single_product.php?=<?php echo $row['product_id']?>"><button class="buy-btn">BUY NOW</button></a>
+        <h4 class="p-price">GHC<?= number_format($row['product_price'], 2) ?></h4>
+        <a href="single_product.php?product_id=<?php echo $row['product_id']; ?>"><button class="buy-btn">BUY NOW</button></a>
+
     </div>
 <?php } ?>
 
