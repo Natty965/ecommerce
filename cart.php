@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
       <div class="container-fluid">
         <img class="logo" src="assets/images/my logo.png" alt="" />
-        <a class="navbar-brand" href="#">Let's Buy</a>
+        <a class="navbar-brand" href="#">ClickCart</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -46,13 +46,13 @@
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.php"
                 >Home</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="shop.html">shop</a>
+              <a class="nav-link" href="shop.php">shop</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Blog</a>
@@ -83,69 +83,40 @@
           <th>Quantity</th>
           <th>Subtotal</th>
         </tr>
+
+        <?php include("server/cart_backend.php")?>
+        <?php foreach($_SESSION['cart'] as $key => $value){?>
         <tr>
           <td>
             <div class="product-info">
-              <img src="assets/images/1.jpg" alt="" />
+              <img src="assets/images/<?= $value['product_image'];?>" />
               <div>
-                <p>Watch</p>
-                <small><span>₵</span>255</small>
+                <p><?= $value['product_name'];?></p>
+                <small><span>₵</span><?= $value['product_price'];?></small>
                 <br />
-                <a class="remove-btn" href="#">remove</a>
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="product_id" value="<?= $value['product_id'];?>">
+                  <input type="submit" name="remove_product" class="remove-btn" value="remove">
+
+                </form>
               </div>
             </div>
           </td>
           <td>
-            <input type="number" value="1" />
-            <a class="edit-btn" href="#">Edit</a>
+            <form action="cart.php" method="POST">
+              <input type="hidden" name="product_id" value="<?= $value['product_id'];?>">
+              <input type="number" name="product_quantity" value="<?= $value['product_quantity'];?>" />
+              <input type="submit" class="edit-btn" name="edit_quantity" value="edit">
+
+            </form>
           </td>
           <td>
             <span>₵</span>
-            <span class="product-price">255</span>
+            <span class="product-price"><?= $value['product_price'];?></span>
           </td>
         </tr>
-        <tr>
-          <td>
-            <div class="product-info">
-              <img src="assets/images/1.jpg" alt="" />
-              <div>
-                <p>Watch</p>
-                <small><span>₵</span>255</small>
-                <br />
-                <a class="remove-btn" href="#">remove</a>
-              </div>
-            </div>
-          </td>
-          <td>
-            <input type="number" value="1" />
-            <a class="edit-btn" href="#">Edit</a>
-          </td>
-          <td>
-            <span>₵</span>
-            <span class="product-price">255</span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="product-info">
-              <img src="assets/images/1.jpg" alt="" />
-              <div>
-                <p>Watch</p>
-                <small><span>₵</span>255</small>
-                <br />
-                <a class="remove-btn" href="#">remove</a>
-              </div>
-            </div>
-          </td>
-          <td>
-            <input type="number" value="1" />
-            <a class="edit-btn" href="#">Edit</a>
-          </td>
-          <td>
-            <span>₵</span>
-            <span class="product-price">255</span>
-          </td>
-        </tr>
+          <?php }?>
+       
       </table>
       <div class="cart-total">
         <table>

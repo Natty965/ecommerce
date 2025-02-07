@@ -55,7 +55,7 @@
               <a class="nav-link" href="contact.html">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a href="cart.html"><i class="fas fa-shopping-bag icon"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-bag icon"></i></a>
               <a href="account.html"><i class="fas fa-user icon"></i>
             </li></a>
           </ul>
@@ -94,8 +94,16 @@
             <?php echo $row['product_name']?>
           </h3>
           <h2>GH₵<?php echo $row['product_price']?></h2>
-          <input type="number" value="1" />
-          <button class="buy-btn">Add To Cart</button>
+
+          <form action="cart.php" method="POST">
+            <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+            <input type="hidden" name="product_image" value="<?php echo $row['product_image']?>">
+            <input type="hidden" name="product_name" value="<?php echo $row['product_name']?>">
+            <input type="hidden" name="product_price" value="<?php echo $row['product_price']?>">
+
+          <input type="number" value="1" name="product_quantity"/>
+          <button type="submit" class="buy-btn" name="add_to_cart">Add To Cart</button>
+          </form>
           <h4 class="mt-5 mb-5">Produc Details</h4>
           <span>
           <?php echo $row['product_description']?>

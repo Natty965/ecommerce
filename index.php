@@ -51,7 +51,7 @@
               <a class="nav-link" href="contact.html">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a href="cart.html"><i class="fas fa-shopping-bag icon"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-bag icon"></i></a>
               <a href="account.html"><i class="fas fa-user icon"></i>
             </li></a>
           </ul>
